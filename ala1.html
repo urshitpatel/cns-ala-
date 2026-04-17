@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Signature Verifier | ALA-1</title>
+    <link rel="stylesheet" href="ala1.css">
+    
+    <!-- Organic & Human Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+    <!-- Cinematic Noise Overlay for analog/human texture -->
+    <div class="noise"></div>
+    
+    <!-- Abstract Mesh Gradients -->
+    <div class="mesh-background">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+    </div>
+
+    <div class="nav-wrapper">
+        <nav class="top-nav glass-nav">
+            <a href="index.html" class="nav-link">
+                <span class="nav-icon">🏠</span> Home
+            </a>
+            <div class="nav-links">
+                <a href="ala1.html" class="nav-link active">ALA-1</a>
+                <a href="ala2.html" class="nav-link">ALA-2</a>
+                <a href="ala3.html" class="nav-link">ALA-3</a>
+            </div>
+        </nav>
+    </div>
+
+    <main class="master-container fade-up">
+        
+        <header class="portfolio-header">
+            <h1 class="headline">Digital <span>Signature</span>.</h1>
+            <p class="sub-headline">An interactive exploration of RSA public-key cryptography & SHA-256 integrity.</p>
+        </header>
+
+        <div class="staggered-timeline">
+            <!-- Central connection line -->
+            <div class="timeline-path"></div>
+
+            <!-- Stage 1 -->
+            <section class="stage-module align-left">
+                <div class="stage-marker orb-purple">01</div>
+                <div class="bento-card card-purple">
+                    <div class="card-header">
+                        <h2>Key Generation</h2>
+                        <button id="generateKeysBtn" class="action-btn btn-purple">Generate Keys ➔</button>
+                    </div>
+                    <p class="stage-desc">Establish a unique mathematical connection. A private key created for your eyes only, and a public key shared with the world.</p>
+                    
+                    <div class="key-container">
+                        <div class="input-group">
+                            <label>Private Key (Keep Secret!)</label>
+                            <textarea id="privateKeyOutput" readonly placeholder="Awaiting generation..."></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>Public Key (Share Freely)</label>
+                            <textarea id="publicKeyOutput" readonly placeholder="Awaiting generation..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stage 2 -->
+            <section class="stage-module align-right">
+                <div class="stage-marker orb-peach">02</div>
+                <div class="bento-card card-peach">
+                    <div class="card-header">
+                        <h2>Message Signing</h2>
+                    </div>
+                    <p class="stage-desc">Sign your message mathematically using your Private Key. This proves you are the true sender and seals the document's integrity.</p>
+                    
+                    <div class="input-group mt-4">
+                        <label>The Secret Message</label>
+                        <textarea id="messageInput" placeholder="Type a message you want to sign..."></textarea>
+                    </div>
+                    
+                    <button id="signMessageBtn" class="action-btn btn-peach w-full mt-4" disabled>Sign with Private Key</button>
+
+                    <div class="computed-results">
+                        <div class="result-box mt-4">
+                            <label>SHA-256 Hash Silhouette</label>
+                            <div id="hashOutput" class="hash-box holo-text">Awaiting input...</div>
+                        </div>
+                        <div class="input-group mt-4">
+                            <label>Final Digital Signature (Base64)</label>
+                            <textarea id="signatureOutput" readonly placeholder="Calculated signature will appear here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stage 3 -->
+            <section class="stage-module align-left">
+                <div class="stage-marker orb-mint">03</div>
+                <div class="bento-card card-mint">
+                    <div class="card-header">
+                        <h2>Signature Verification</h2>
+                    </div>
+                    <p class="stage-desc">The receiver applies your Public Key to the signature to independently verify it over the message and ensure it wasn't intercepted or forged.</p>
+
+                    <div class="input-group mt-4">
+                        <label>Received Message</label>
+                        <textarea id="verifyMessageInput" placeholder="Paste the message to verify..."></textarea>
+                    </div>
+                    <div class="input-group mt-4">
+                        <label>Attached Signature</label>
+                        <textarea id="verifySignatureInput" placeholder="Paste the signature..."></textarea>
+                    </div>
+                    
+                    <button id="verifyBtn" class="action-btn btn-mint w-full mt-4" disabled>Scan & Verify</button>
+
+                    <div id="verificationResult" class="status-panel mt-4">
+                        <div class="radar-scan"></div>
+                        <span id="verifyText">Status: Awaiting Verification</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="ala1.js"></script>
+</body>
+</html>

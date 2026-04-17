@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHA Integrity Analyzer | Avalanche Effect</title>
+    <link rel="stylesheet" href="ala2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CryptoJS for Hash functions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <main class="container">
+        <nav class="top-nav glass-nav">
+            <a href="index.html" class="nav-link">
+                <span class="nav-icon">🏠</span> Home
+            </a>
+            <div class="nav-links">
+                <a href="ala1.html" class="nav-link">ALA-1</a>
+                <a href="ala2.html" class="nav-link active">ALA-2</a>
+                <a href="ala3.html" class="nav-link">ALA-3</a>
+            </div>
+        </nav>
+
+        <header>
+            <div class="header-content">
+                <h1>SHA Integrity Analyzer</h1>
+                <p>Observe the powerful <strong>Avalanche Effect</strong>: Even a tiny alteration in input produces a
+                    drastically different hash output.</p>
+            </div>
+        </header>
+
+        <section class="inputs-container">
+            <div class="input-group glass-card">
+                <label for="input1">Original Text (Input 1)</label>
+                <textarea id="input1" placeholder="Type your first message here...">Hello, world!</textarea>
+                <div class="stats">Length: <span id="len1">13</span> chars</div>
+            </div>
+
+            <div class="input-group glass-card">
+                <label for="input2">Modified Text (Input 2)</label>
+                <textarea id="input2" placeholder="Type slightly modified message here...">hello, world!</textarea>
+                <div class="stats">Length: <span id="len2">13</span> chars</div>
+            </div>
+        </section>
+
+        <section class="results-container">
+            <div class="algorithm-card glass-card">
+                <div class="card-header">
+                    <h2>SHA-1</h2>
+                    <div class="bit-length">160-bit</div>
+                </div>
+
+                <div class="hash-row">
+                    <span class="hash-label">Hash 1:</span>
+                    <div class="hash-output" id="sha1-out1"></div>
+                </div>
+                <div class="hash-row">
+                    <span class="hash-label">Hash 2:</span>
+                    <div class="hash-output" id="sha1-out2"></div>
+                </div>
+
+                <div class="avalanche-stats">
+                    <div class="stat-box">
+                        <span class="stat-title">Bits Flipped</span>
+                        <span class="stat-value" id="sha1-bits">0 / 160</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-title">Avalanche Effect</span>
+                        <span class="stat-value highlight" id="sha1-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="algorithm-card glass-card">
+                <div class="card-header">
+                    <h2>SHA-256</h2>
+                    <div class="bit-length">256-bit</div>
+                </div>
+
+                <div class="hash-row">
+                    <span class="hash-label">Hash 1:</span>
+                    <div class="hash-output" id="sha256-out1"></div>
+                </div>
+                <div class="hash-row">
+                    <span class="hash-label">Hash 2:</span>
+                    <div class="hash-output" id="sha256-out2"></div>
+                </div>
+
+                <div class="avalanche-stats">
+                    <div class="stat-box">
+                        <span class="stat-title">Bits Flipped</span>
+                        <span class="stat-value" id="sha256-bits">0 / 256</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-title">Avalanche Effect</span>
+                        <span class="stat-value highlight" id="sha256-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="algorithm-card glass-card">
+                <div class="card-header">
+                    <h2>SHA-512</h2>
+                    <div class="bit-length">512-bit</div>
+                </div>
+
+                <div class="hash-row">
+                    <span class="hash-label">Hash 1:</span>
+                    <div class="hash-output" id="sha512-out1"></div>
+                </div>
+                <div class="hash-row">
+                    <span class="hash-label">Hash 2:</span>
+                    <div class="hash-output" id="sha512-out2"></div>
+                </div>
+
+                <div class="avalanche-stats">
+                    <div class="stat-box">
+                        <span class="stat-title">Bits Flipped</span>
+                        <span class="stat-value" id="sha512-bits">0 / 512</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-title">Avalanche Effect</span>
+                        <span class="stat-value highlight" id="sha512-percent">0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="ala2.js"></script>
+</body>
+
+</html>

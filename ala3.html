@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMAC Message Authentication</title>
+    <link rel="stylesheet" href="ala3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- CryptoJS for HMAC functions -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <main class="container">
+        <nav class="top-nav glass-nav">
+            <a href="index.html" class="nav-link">
+                <span class="nav-icon">🏠</span> Home
+            </a>
+            <div class="nav-links">
+                <a href="ala1.html" class="nav-link">ALA-1</a>
+                <a href="ala2.html" class="nav-link">ALA-2</a>
+                <a href="ala3.html" class="nav-link active">ALA-3</a>
+            </div>
+        </nav>
+
+        <header>
+            <div class="header-content">
+                <h1>HMAC Simulator</h1>
+                <p>Observe how Message Authentication Codes (MAC) ensure both <strong>Data Integrity</strong> and
+                    <strong>Authenticity</strong> using a Shared Secret Key.</p>
+            </div>
+        </header>
+
+        <section class="simulation-container">
+            <div class="panel sender-panel glass-card">
+                <div class="panel-header">
+                    <h2>Sender (Alice)</h2>
+                    <span class="badge">Generating MAC</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="sender-msg">Message</label>
+                    <textarea id="sender-msg" placeholder="Enter message to send...">Transfer $1000 to Bob.</textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="sender-key">Shared Secret Key</label>
+                    <input type="text" id="sender-key" placeholder="Enter secret key..." value="super_secret_key_123">
+                </div>
+
+                <div class="output-group">
+                    <label>Generated HMAC-SHA256:</label>
+                    <div class="hash-output" id="sender-mac">waiting...</div>
+                </div>
+
+                <button id="btn-transmit" class="primary-btn">Transmit to Receiver ➔</button>
+            </div>
+
+            <div class="network-connector">
+                <div class="network-line"></div>
+                <div class="network-icon">🔒</div>
+                <div class="network-line"></div>
+            </div>
+
+            <div class="panel receiver-panel glass-card">
+                <div class="panel-header">
+                    <h2>Receiver (Bob)</h2>
+                    <span class="badge badge-verify">Verifying MAC</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="receiver-msg">Received Message <span class="simulate-tamper">(Edit to simulate
+                            tampering)</span></label>
+                    <textarea id="receiver-msg" placeholder="Waiting for message..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="receiver-key">Shared Secret Key</label>
+                    <input type="text" id="receiver-key" placeholder="Enter secret key..." value="super_secret_key_123">
+                </div>
+
+                <div class="input-group">
+                    <label>Received MAC (Attached to Message)</label>
+                    <div class="hash-output received" id="receiver-received-mac">waiting...</div>
+                </div>
+
+                <div class="verification-box">
+                    <div class="status-indicator" id="verify-status">
+                        <div class="pulse-ring"></div>
+                        <span id="status-text">Ready to Verify</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="explanation-card glass-card fade-in">
+            <h3>How it works:</h3>
+            <p>1. The <strong>Sender</strong> hashes their Message with the Secret Key to generate a MAC (HMAC-SHA256).
+            </p>
+            <p>2. They send the cleartext Message along with the MAC over the network.</p>
+            <p>3. The <strong>Receiver</strong> takes the incoming Message and applies their own copy of the Secret Key
+                to calculate the Expected MAC.</p>
+            <p>4. If the Expected MAC matches the Received MAC, the message is <strong>Authentic</strong> (sent by
+                someone with the key) and <strong>Intact</strong> (has not been altered). Try changing 1 letter in the
+                Received Message to see verification fail!</p>
+        </section>
+    </main>
+
+    <script src="ala3.js"></script>
+</body>
+
+</html>
